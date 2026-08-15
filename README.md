@@ -1,4 +1,4 @@
-# Diamond Price Analysis — Group Project
+# Diamond Price Analysis - Group Project
 ### BAN 6005 · Wake Forest University School of Business · Summer 2026
 
 > **Research Question:** Which physical characteristics and quality grades most strongly predict the price of a diamond?
@@ -7,7 +7,7 @@
 
 ## Project Overview
 
-This repository documents a semester-long statistical analysis of diamond pricing using the Diamonds Dataset — a widely-used benchmark dataset originally compiled from the `ggplot2` R package (Hadley Wickham) and distributed via Kaggle. The analysis progresses from dataset selection and cleaning through descriptive statistics, probability modeling, hypothesis testing, and multiple linear regression, following the analytical workflow used by professional data analysts.
+This repository documents a semester-long statistical analysis of diamond pricing using the Diamonds Dataset - a widely-used benchmark dataset originally compiled from the `ggplot2` R package (Hadley Wickham) and distributed via Kaggle. The analysis progresses from dataset selection and cleaning through descriptive statistics, probability modeling, hypothesis testing, and multiple linear regression, following the analytical workflow used by professional data analysts.
 
 The project was completed as a group assignment. All analytical deliverables in this repository represent the team's shared work.
 
@@ -20,7 +20,7 @@ The project was completed as a group assignment. All analytical deliverables in 
 
 | Attribute | Detail |
 |:---|:---|
-| **Source** | Kaggle — [Diamonds Dataset](https://www.kaggle.com/datasets/shivam2503/diamonds) (originally from ggplot2) |
+| **Source** | Kaggle - [Diamonds Dataset](https://www.kaggle.com/datasets/shivam2503/diamonds) (originally from ggplot2) |
 | **Raw size** | 50,000 rows × 10 columns |
 | **Cleaned size** | 49,835 rows × 10 columns |
 | **Main variable** | `price` (USD, continuous) |
@@ -31,9 +31,9 @@ The project was completed as a group assignment. All analytical deliverables in 
 | Variable | Type | Description |
 |:---|:---|:---|
 | `carat` | Continuous | Diamond weight (1 carat = 0.2g) |
-| `cut` | Categorical (3 levels) | Low / Medium / High — recoded from original 5-level scale |
-| `color` | Categorical (3 levels) | Colorless / Near Colorless / Faint — recoded from D–J scale |
-| `clarity` | Categorical (3 levels) | Low / Medium / High — recoded from original 8-level scale |
+| `cut` | Categorical (3 levels) | Low / Medium / High - recoded from original 5-level scale |
+| `color` | Categorical (3 levels) | Colorless / Near Colorless / Faint - recoded from D–J scale |
+| `clarity` | Categorical (3 levels) | Low / Medium / High - recoded from original 8-level scale |
 | `depth` | Continuous | Total depth percentage |
 | `table` | Continuous | Width of top facet as % of widest point |
 | `price` | Continuous | Price in USD ($326–$18,823) |
@@ -65,11 +65,11 @@ diamonds-price-analysis/
 
 | Assignment | Method | Key Finding |
 |:---|:---|:---|
-| A2 — Dataset | Selection & cleaning | 49,835 rows after removing duplicates, zero-dimension rows, and outliers |
-| A3 — Descriptive Stats | Summary statistics, distributions | `price` is right-skewed (mean $3,945 vs. median $2,415); `depth` is the only non-positively skewed variable |
-| A4 — Probability | Empirical probability scenarios | Roughly 35% of diamonds fall in the lowest price band ($326–$1,325); bimodal pattern in physical dimensions |
-| A5 — Inference | One-sample t-test, confidence intervals | Tested whether mean diamond price differs from a benchmark; set α = 0.05 |
-| A6 — Regression | Multiple OLS with dummy variables | Final model R² = 0.9014; `carat` is the dominant predictor (coefficient: +$10,892 per carat); x, y, z removed due to near-perfect multicollinearity |
+| A2 - Dataset | Selection & cleaning | 49,835 rows after removing duplicates, zero-dimension rows, and outliers |
+| A3 - Descriptive Stats | Summary statistics, distributions | `price` is right-skewed (mean $3,945 vs. median $2,415); `depth` is the only non-positively skewed variable |
+| A4 - Probability | Empirical probability scenarios | Roughly 35% of diamonds fall in the lowest price band ($326–$1,325); bimodal pattern in physical dimensions |
+| A5 - Inference | One-sample t-test, confidence intervals | Tested whether mean diamond price differs from a benchmark; set α = 0.05 |
+| A6 - Regression | Multiple OLS with dummy variables | Final model R² = 0.9014; `carat` is the dominant predictor (coefficient: +$10,892 per carat); x, y, z removed due to near-perfect multicollinearity |
 
 ---
 
@@ -82,6 +82,5 @@ diamonds-price-analysis/
 
 ---
 
-*Analysis completed as part of BAN 6005 — Business Analytics, Wake Forest University School of Business, Summer 2026.*
+*Analysis completed as part of BAN 6005 - Business Analytics, Wake Forest University School of Business, Summer 2026.*
 *Individual repository maintained by Joshua C. Todd.*
-
