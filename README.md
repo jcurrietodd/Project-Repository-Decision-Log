@@ -13,11 +13,11 @@
 
 | Assignment | File | Method | Key Output |
 |:---|:---|:---|:---|
-| [A2 - Dataset Selection](#assignment-2---dataset-selection) | [diamonds_project_submission (1) (1).xlsx](diamonds_project_submission%20(1)%20(1).xlsx) | Data cleaning & recoding | 49,835 rows after cleaning |
-| [A3 - Descriptive Stats](#assignment-3---descriptive-statistics) | [3 diamonds_recoded_cleaned_assignment_3.xlsx](3%20diamonds_recoded_cleaned_assignment_3.xlsx) | Summary statistics | Price skew = 1.61; depth skew = -0.06 |
-| [A4 - Probability](#assignment-4---probability) | [diamonds_recoded_cleaned_assignment_4 (1).xlsx](diamonds_recoded_cleaned_assignment_4%20(1).xlsx) | Empirical probability | ~35% of diamonds priced under $1,325 |
-| [A5 - Inference](#assignment-5---hypothesis-testing) | [assignment5_stats (added-on Draft) (2).xlsx](assignment5_stats%20(added-on%20Draft)%20(2).xlsx) | One-sample t-test + CI | Significant at alpha = 0.05 |
-| [A6 - Regression](#assignment-6---regression-modeling) | [Assingment 6.xlsx](Assingment%206.xlsx) | OLS regression | R² = 0.9014; carat drives price |
+| [A2 - Dataset Selection](#assignment-2---dataset-selection) | [Dataset Selection & Overview](diamonds_project_submission%20(1)%20(1).xlsx) | Data cleaning & recoding | 49,835 rows after cleaning |
+| [A3 - Descriptive Stats](#assignment-3---descriptive-statistics) | [Descriptive Statistics](3%20diamonds_recoded_cleaned_assignment_3.xlsx) | Summary statistics | Price skew = 1.61; depth skew = -0.06 |
+| [A4 - Probability](#assignment-4---probability) | [Probability Analysis](diamonds_recoded_cleaned_assignment_4%20(1).xlsx) | Empirical probability | ~35% of diamonds priced under $1,325 |
+| [A5 - Inference](#assignment-5---hypothesis-testing) | [Hypothesis Testing & Inference](assignment5_stats%20(added-on%20Draft)%20(2).xlsx) | One-sample t-test + CI | Significant at alpha = 0.05 |
+| [A6 - Regression](#assignment-6---regression-modeling) | [Regression Modeling](Assingment%206.xlsx) | OLS regression | R² = 0.9014; carat drives price |
 
 ---
 
@@ -50,7 +50,7 @@
 ## Assignment-by-Assignment Summary
 
 ### Assignment 2 - Dataset Selection
-**File:** [diamonds_project_submission__1___1_.xlsx](diamonds_project_submission__1___1_.xlsx)
+**File:** [A2 - Dataset Selection](diamonds_project_submission__1___1_.xlsx)
 
 We selected the Diamonds Dataset because it offers ~50,000 observations with a clear continuous outcome variable (price), a mix of continuous and categorical predictors, and a direct business interpretation. Price was chosen as the main variable of interest because it is the central outcome in any diamond retail context and is well-suited to all four analytical methods planned for the course.
 
@@ -62,7 +62,7 @@ We selected the Diamonds Dataset because it offers ~50,000 observations with a c
 ---
 
 ### Assignment 3 - Descriptive Statistics
-**File:** [3_diamonds_recoded_cleaned_assignment_3.xlsx](3_diamonds_recoded_cleaned_assignment_3.xlsx)
+**File:** [A3 - Descriptive Stat](3_diamonds_recoded_cleaned_assignment_3.xlsx)
 
 ```
 Variable        Mean        Median      Std Dev     Skew
@@ -78,7 +78,7 @@ table           57.46       57.00       2.235       0.80
 ---
 
 ### Assignment 4 - Probability
-**File:** [diamonds_recoded_cleaned_assignment_4__1_.xlsx](diamonds_recoded_cleaned_assignment_4__1_.xlsx)
+**File:** [A4 - Probability](diamonds_recoded_cleaned_assignment_4__1_.xlsx)
 
 **Approach:** Empirical (not normal distribution)
 **Reason:** `price` skew = 1.61 and `carat` skew = 1.11 - a normal distribution assumption would overestimate the likelihood of mid-to-high values. `depth` (skew = -0.06) was the only variable approximating normality, but we applied the empirical method consistently across all variables.
@@ -97,7 +97,7 @@ Bimodal pattern in x and y dimensions -> two distinct market size segments
 ---
 
 ### Assignment 5 - Hypothesis Testing
-**File:** [assignment5_stats__added-on_Draft___2_.xlsx](assignment5_stats__added-on_Draft___2_.xlsx)
+**File:** [A5 - Inference](assignment5_stats__added-on_Draft___2_.xlsx)
 
 - **Test:** One-sample t-test on mean diamond price
 - **Alpha:** 0.05 (conventional threshold; no domain-specific reason to be more or less conservative)
@@ -108,7 +108,7 @@ Bimodal pattern in x and y dimensions -> two distinct market size segments
 ---
 
 ### Assignment 6 - Regression Modeling
-**File:** [Assingment_6.xlsx](Assingment_6.xlsx)
+**File:** [A6 - Regression](Assingment_6.xlsx)
 
 #### Final Model Performance
 
@@ -173,19 +173,11 @@ table                   -$34            slightly negative per % point
 
 ## Repository Structure
 
-```
-Project-Repository-Decision-Log/
-|
-|- README.md                                           <- Project overview (this file)
-|- DECISIONS.md                                        <- Analytical decision log
-|
-|- diamonds_project_submission__1___1_.xlsx            <- Assignment 2: Dataset + overview
-|- 3_diamonds_recoded_cleaned_assignment_3.xlsx        <- Assignment 3: Descriptive stats
-|- diamonds_recoded_cleaned_assignment_4__1_.xlsx      <- Assignment 4: Probability
-|- assignment5_stats__added-on_Draft___2_.xlsx         <- Assignment 5: Inference
-|- Assingment_6.xlsx                                   <- Assignment 6: Regression
-```
-
+|- diamonds_project_submission (1) (1).xlsx     <- Assignment 2
+|- 3 diamonds_recoded_cleaned_assignment_3.xlsx  <- Assignment 3
+|- diamonds_recoded_cleaned_assignment_4 (1).xlsx <- Assignment 4
+|- assignment5_stats (added-on Draft) (2).xlsx   <- Assignment 5
+|- Assingment 6.xlsx                             <- Assignment 6
 ---
 
 *BAN 6005 - Business Analytics | Wake Forest University School of Business | Summer 2026*
