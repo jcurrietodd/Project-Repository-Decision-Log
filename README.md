@@ -13,11 +13,11 @@
 
 | Assignment | File | Method | Key Output |
 |:---|:---|:---|:---|
-| [A2 - Dataset Selection](#assignment-2---dataset-selection) | [diamonds_project_submission__1___1_.xlsx](diamonds_project_submission__1___1_.xlsx) | Data cleaning & recoding | 49,835 rows after cleaning |
-| [A3 - Descriptive Stats](#assignment-3---descriptive-statistics) | [3_diamonds_recoded_cleaned_assignment_3.xlsx](3_diamonds_recoded_cleaned_assignment_3.xlsx) | Summary statistics | Price skew = 1.61; depth skew = -0.06 |
-| [A4 - Probability](#assignment-4---probability) | [diamonds_recoded_cleaned_assignment_4__1_.xlsx](diamonds_recoded_cleaned_assignment_4__1_.xlsx) | Empirical probability | ~35% of diamonds priced under $1,325 |
-| [A5 - Inference](#assignment-5---hypothesis-testing) | [assignment5_stats__added-on_Draft___2_.xlsx](assignment5_stats__added-on_Draft___2_.xlsx) | One-sample t-test + CI | Significant at alpha = 0.05 |
-| [A6 - Regression](#assignment-6---regression-modeling) | [Assingment_6.xlsx](Assingment_6.xlsx) | OLS regression | R² = 0.9014; carat drives price |
+| [A2 - Dataset Selection](#assignment-2---dataset-selection) | [diamonds_project_submission (1) (1).xlsx](diamonds_project_submission%20(1)%20(1).xlsx) | Data cleaning & recoding | 49,835 rows after cleaning |
+| [A3 - Descriptive Stats](#assignment-3---descriptive-statistics) | [3 diamonds_recoded_cleaned_assignment_3.xlsx](3%20diamonds_recoded_cleaned_assignment_3.xlsx) | Summary statistics | Price skew = 1.61; depth skew = -0.06 |
+| [A4 - Probability](#assignment-4---probability) | [diamonds_recoded_cleaned_assignment_4 (1).xlsx](diamonds_recoded_cleaned_assignment_4%20(1).xlsx) | Empirical probability | ~35% of diamonds priced under $1,325 |
+| [A5 - Inference](#assignment-5---hypothesis-testing) | [assignment5_stats (added-on Draft) (2).xlsx](assignment5_stats%20(added-on%20Draft)%20(2).xlsx) | One-sample t-test + CI | Significant at alpha = 0.05 |
+| [A6 - Regression](#assignment-6---regression-modeling) | [Assingment 6.xlsx](Assingment%206.xlsx) | OLS regression | R² = 0.9014; carat drives price |
 
 ---
 
