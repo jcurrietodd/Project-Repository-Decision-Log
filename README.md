@@ -182,6 +182,9 @@ table                   -$34            slightly negative per % point
 
 ---
 
+### Working Reflection
+Setting up this repository was less about learning GitHub from scratch and more about learning to use it intentionally. I had used GitHub before for version control and basic file storage, but this assignment pushed me to think about documentation as a deliverable in its own right, not just the analysis, but the reasoning behind it. Writing the DECISIONS.md file was the most valuable part of that shift. Reconstructing why we chose the empirical probability approach, why we removed x, y, and z from the regression model due to near-perfect multicollinearity, and why we set alpha at 0.05 forced me to articulate decisions I had made intuitively during the assignments. That kind of structured reasoning capturing the why behind analytical choices is exactly what I expect to need in professional settings, whether that's supporting a consulting engagement, presenting to a government stakeholder, or explaining a model to a non-technical client. I am already using GitHub as part of my job search portfolio, with repositories documenting my food insecurity dashboard work from Strategic Spartanburg and my honors thesis regression framework. This assignment reinforced that a well-documented GitHub repository is not just a storage system- it is a professional communication tool, and the quality of the README and decision log reflects directly on the quality of the analyst behind the work.
+
 ## Repository Structure
 
 |- diamonds_project_submission (1) (1).xlsx     <- Assignment 2
