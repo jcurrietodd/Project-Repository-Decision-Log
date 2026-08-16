@@ -47,6 +47,15 @@
 
 ---
 
+### Executive Summary
+
+Our team was tasked with finding a dataset, under the constraints of at least three categorical variables to compare with our continuous predictors. Our diamonds dataset spanned to 49,835 rows after cleaning to be compared against our set predictors as outlined in our project. We explored six different methods of analysis to better understand what attributes of a diamond best determine price. The dominant finding in our analysis was that the price of diamonds is strongly predicted by carat weight, with each additional carat adding roughly ~$10,892 to the price. This predictor had a very large relativity, essentially dwarfing the other predictors. Of the categorical variables, we assigned dummies and added them as binaries in later assessments of our data to allow them to work out in final regression outputs.
+
+Working through the data, we found some interesting insights, based on this large sample of registered diamonds in the market, that low-quality cut diamonds dominate the market. The price is heavily right-skewed (1.61), meaning that most of the diamonds are inexpensive and only a small share of large, more expensive stones pulls the mean price upward. The mean ($3,945) is much larger than the median ($2,415), confirming that the small share of pristine and larger diamonds heavily skew averages upward. Roughly ~35% of the diamonds are observed in the lower band, representing the inexpensive price group. In our final regression, we saw that color was the only predictor pulling down our results. Our model was statistically significant with a high R Squared ~0.9014 and an adjusted value of ~0.0913. All our predictors carried significance, the only issue we ran into was in multicollinearity – expected for dimension variables, given x, y and z are needed to map the area of a diamond. We made the choice to drop these variables; carat was a better metric to explain size.
+
+Our main takeaway, in a business context, a jeweler could use this model to estimate the price of a diamond, especially focusing on carat being the best predictor of what the price should be when assessing different diamond samples. Cut matters the least, shear quantity/amount per stone is the focus. The more weight a diamond carries the more valuable it becomes when predicting prices.
+
+
 ## Assignment-by-Assignment Summary
 
 ### Assignment 2 - Dataset Selection
