@@ -1,18 +1,23 @@
-# Diamond Price Analysis - Group Project
-### BAN 6005 · Wake Forest University School of Business · Summer 2026
+# Diamonds Price Analysis
+### What drives the price of a diamond? A semester-long statistical investigation.
 
-> **Research Question:** Which physical characteristics and quality grades most strongly predict the price of a diamond?
+**Course:** BAN 6005 - Business Analytics | Wake Forest University School of Business | Summer 2026
+**Team:** Alicia, Bennett, and Joshua Todd
+**Individual repository maintained by:** Joshua C. Todd
+**Dataset:** 49,835 diamonds | Source: Kaggle (ggplot2 / Hadley Wickham)
+**Main research question:** Which physical characteristics and quality grades most strongly predict diamond price?
 
 ---
 
-## Project Overview
+## Quick Navigation
 
-This repository documents a semester-long statistical analysis of diamond pricing using the Diamonds Dataset - a widely-used benchmark dataset originally compiled from the `ggplot2` R package (Hadley Wickham) and distributed via Kaggle. The analysis progresses from dataset selection and cleaning through descriptive statistics, probability modeling, hypothesis testing, and multiple linear regression, following the analytical workflow used by professional data analysts.
-
-The project was completed as a group assignment. All analytical deliverables in this repository represent the team's shared work.
-
-**Team Members:** Alicia, Bennett, and Joshua Todd
-**Individual contributor (data cleaning and recoding):** Joshua Todd
+| Assignment | File | Method | Key Output |
+|:---|:---|:---|:---|
+| [A2 - Dataset Selection](#assignment-2---dataset-selection) | [diamonds_project_submission__1___1_.xlsx](diamonds_project_submission__1___1_.xlsx) | Data cleaning & recoding | 49,835 rows after cleaning |
+| [A3 - Descriptive Stats](#assignment-3---descriptive-statistics) | [3_diamonds_recoded_cleaned_assignment_3.xlsx](3_diamonds_recoded_cleaned_assignment_3.xlsx) | Summary statistics | Price skew = 1.61; depth skew = -0.06 |
+| [A4 - Probability](#assignment-4---probability) | [diamonds_recoded_cleaned_assignment_4__1_.xlsx](diamonds_recoded_cleaned_assignment_4__1_.xlsx) | Empirical probability | ~35% of diamonds priced under $1,325 |
+| [A5 - Inference](#assignment-5---hypothesis-testing) | [assignment5_stats__added-on_Draft___2_.xlsx](assignment5_stats__added-on_Draft___2_.xlsx) | One-sample t-test + CI | Significant at alpha = 0.05 |
+| [A6 - Regression](#assignment-6---regression-modeling) | [Assingment_6.xlsx](Assingment_6.xlsx) | OLS regression | R² = 0.9014; carat drives price |
 
 ---
 
@@ -20,67 +25,168 @@ The project was completed as a group assignment. All analytical deliverables in 
 
 | Attribute | Detail |
 |:---|:---|
-| **Source** | Kaggle - [Diamonds Dataset](https://www.kaggle.com/datasets/shivam2503/diamonds) (originally from ggplot2) |
-| **Raw size** | 50,000 rows × 10 columns |
-| **Cleaned size** | 49,835 rows × 10 columns |
-| **Main variable** | `price` (USD, continuous) |
-| **Removed** | 145 duplicate rows, 17 zero-dimension rows, 3 extreme outliers |
+| Source | [Kaggle - Diamonds Dataset](https://www.kaggle.com/datasets/shivam2503/diamonds) |
+| Origin | ggplot2 R package (Hadley Wickham) |
+| Raw size | 50,000 rows x 10 columns |
+| Cleaned size | 49,835 rows x 10 columns |
+| Removed | 145 duplicates, 17 zero-dimension rows, 3 extreme outliers |
+| Main outcome variable | `price` (USD, $326 - $18,823) |
 
-**Variables:**
+### Variable Reference
 
 | Variable | Type | Description |
 |:---|:---|:---|
 | `carat` | Continuous | Diamond weight (1 carat = 0.2g) |
-| `cut` | Categorical (3 levels) | Low / Medium / High - recoded from original 5-level scale |
-| `color` | Categorical (3 levels) | Colorless / Near Colorless / Faint - recoded from D–J scale |
-| `clarity` | Categorical (3 levels) | Low / Medium / High - recoded from original 8-level scale |
+| `cut` | Categorical (3) | Low / Medium / High |
+| `color` | Categorical (3) | Colorless / Near Colorless / Faint |
+| `clarity` | Categorical (3) | Low / Medium / High |
 | `depth` | Continuous | Total depth percentage |
 | `table` | Continuous | Width of top facet as % of widest point |
-| `price` | Continuous | Price in USD ($326–$18,823) |
-| `x` / `y` / `z` | Continuous | Physical dimensions in millimeters |
+| `price` | Continuous | Price in USD - main outcome variable |
+| `x` / `y` / `z` | Continuous | Physical dimensions in mm |
+
+---
+
+## Assignment-by-Assignment Summary
+
+### Assignment 2 - Dataset Selection
+**File:** [diamonds_project_submission__1___1_.xlsx](diamonds_project_submission__1___1_.xlsx)
+
+We selected the Diamonds Dataset because it offers ~50,000 observations with a clear continuous outcome variable (price), a mix of continuous and categorical predictors, and a direct business interpretation. Price was chosen as the main variable of interest because it is the central outcome in any diamond retail context and is well-suited to all four analytical methods planned for the course.
+
+**Recoding decisions:**
+- `cut`: Fair/Good -> Low | Very Good -> Medium | Premium/Ideal -> High
+- `color`: D-F -> Colorless | G-H -> Near Colorless | I-J -> Faint
+- `clarity`: I1/SI2/SI1 -> Low | VS2/VS1 -> Medium | VVS2/VVS1/IF -> High
+
+---
+
+### Assignment 3 - Descriptive Statistics
+**File:** [3_diamonds_recoded_cleaned_assignment_3.xlsx](3_diamonds_recoded_cleaned_assignment_3.xlsx)
+
+```
+Variable        Mean        Median      Std Dev     Skew
+-------         -------     -------     -------     ----
+price           $3,945      $2,415      $3,989      1.61   <- right-skewed
+carat           0.798       0.700       0.474       1.11   <- right-skewed
+depth %         61.75       61.80       1.433      -0.06   <- near-symmetric (only one)
+table           57.46       57.00       2.235       0.80
+```
+
+**Key finding:** `depth` is the only variable without positive skew. All others cluster at low values with long right tails - consistent with a market where most diamonds are small and inexpensive, and large premium stones are rare.
+
+---
+
+### Assignment 4 - Probability
+**File:** [diamonds_recoded_cleaned_assignment_4__1_.xlsx](diamonds_recoded_cleaned_assignment_4__1_.xlsx)
+
+**Approach:** Empirical (not normal distribution)
+**Reason:** `price` skew = 1.61 and `carat` skew = 1.11 - a normal distribution assumption would overestimate the likelihood of mid-to-high values. `depth` (skew = -0.06) was the only variable approximating normality, but we applied the empirical method consistently across all variables.
+
+```
+Price Band          Count       Share of Dataset
+$326 - $952         ~12,459     ~25%   (below Q1)
+$952 - $2,415       ~12,459     ~25%   (Q1 to median)
+$2,415 - $5,325     ~12,459     ~25%   (median to Q3)
+$5,325 - $18,823    ~12,458     ~25%   (above Q3)
+
+~35% of diamonds priced under $1,325 (lowest band)
+Bimodal pattern in x and y dimensions -> two distinct market size segments
+```
+
+---
+
+### Assignment 5 - Hypothesis Testing
+**File:** [assignment5_stats__added-on_Draft___2_.xlsx](assignment5_stats__added-on_Draft___2_.xlsx)
+
+- **Test:** One-sample t-test on mean diamond price
+- **Alpha:** 0.05 (conventional threshold; no domain-specific reason to be more or less conservative)
+- **Sample size:** n = 49,835
+- **Result:** Statistically significant at alpha = 0.05
+- **Note:** With n = 49,835 the standard error is very small. Statistical significance does not imply practical significance at this scale - a $10 difference would be statistically significant but commercially irrelevant. The 95% confidence interval was reported alongside the p-value to provide actionable range estimates.
+
+---
+
+### Assignment 6 - Regression Modeling
+**File:** [Assingment_6.xlsx](Assingment_6.xlsx)
+
+#### Final Model Performance
+
+```
+Metric                  Value
+------                  -----
+R-squared               0.9014
+Adjusted R-squared      0.9013
+Standard Error          $1,254.87
+Observations            49,835
+F-statistic             37,941.4 (p < 0.001)
+```
+
+#### Coefficient Table - Final Model
+
+```
+Predictor               Coefficient     Interpretation
+---------               -----------     --------------
+Intercept               -$2,069         baseline
+carat                   +$10,892        dominant driver - $10,892 more per carat
+cut_medium              +$318           medium cut premium over low cut
+cut_high                +$444           high cut premium over low cut
+color_near_colorless    -$625           discount vs. colorless
+color_faint             -$2,060         significant discount vs. colorless
+clarity_medium          +$1,168         clarity premium over low clarity
+clarity_high            +$1,783         strong clarity premium over low clarity
+depth                   +$68            small positive effect per % point
+table                   -$34            slightly negative per % point
+```
+
+**Variables removed:** `x`, `y`, `z` (length, width, depth in mm)
+**Reason:** Near-perfect multicollinearity. Correlation matrix showed x-y = 0.999, x-z = 0.991, y-z = 0.991. All three dimensions are mechanically related through carat weight and cut proportions. Retaining them inflated standard errors without improving interpretability. Carat already captures the volume/weight information.
+
+#### What This Model Tells a Jeweler
+
+> A diamond's carat weight is by far the strongest predictor of price - worth nearly $11,000 per carat. After weight, clarity matters more than cut, and color penalizes more than it rewards. A faint-color diamond costs roughly $2,060 less than a comparable colorless stone, while a high-clarity stone commands $1,783 more than a low-clarity one.
+
+---
+
+## Key Findings Across the Project
+
+| Question | Finding |
+|:---|:---|
+| What drives diamond price most? | Carat weight (+$10,892 per carat) by a wide margin |
+| Which quality grade matters most? | Color penalizes most severely (-$2,060 for faint vs. colorless) |
+| How well can we predict price? | R² = 0.9014 - the model explains 90% of price variance |
+| Are the dimensions (x, y, z) useful? | No - multicollinearity (r = 0.999) makes them redundant given carat |
+| Is price normally distributed? | No - skew of 1.61 required the empirical probability approach |
+| What is a typical diamond worth? | Median $2,415; mean $3,945 (mean pulled up by rare large stones) |
+
+---
+
+## Tools Used
+
+| Tool | Purpose |
+|:---|:---|
+| Microsoft Excel | All analysis - descriptive stats, probability, t-tests, regression |
+| GitHub | Version control and portfolio documentation |
+| Kaggle | Dataset source and access |
 
 ---
 
 ## Repository Structure
 
 ```
-diamonds-price-analysis/
-├── README.md                          ← You are here
-├── DECISIONS.md                       ← Analytical decision log
-├── data/
-│   └── diamonds_project_submission    ← Assignment 2: raw dataset + overview
-├── assignment-03-descriptive-stats/
-│   └── 3_diamonds_recoded_cleaned     ← Cleaned dataset + descriptive analysis
-├── assignment-04-probability/
-│   └── diamonds_recoded_cleaned_a4    ← Distribution analysis + probability scenarios
-├── assignment-05-inference/
-│   └── assignment5_stats              ← One-sample t-test + confidence intervals
-└── assignment-06-regression/
-    └── Assignment_6                   ← Multi-variable OLS regression models
+Project-Repository-Decision-Log/
+|
+|- README.md                                           <- Project overview (this file)
+|- DECISIONS.md                                        <- Analytical decision log
+|
+|- diamonds_project_submission__1___1_.xlsx            <- Assignment 2: Dataset + overview
+|- 3_diamonds_recoded_cleaned_assignment_3.xlsx        <- Assignment 3: Descriptive stats
+|- diamonds_recoded_cleaned_assignment_4__1_.xlsx      <- Assignment 4: Probability
+|- assignment5_stats__added-on_Draft___2_.xlsx         <- Assignment 5: Inference
+|- Assingment_6.xlsx                                   <- Assignment 6: Regression
 ```
 
 ---
 
-## Analysis Summary
-
-| Assignment | Method | Key Finding |
-|:---|:---|:---|
-| A2 - Dataset | Selection & cleaning | 49,835 rows after removing duplicates, zero-dimension rows, and outliers |
-| A3 - Descriptive Stats | Summary statistics, distributions | `price` is right-skewed (mean $3,945 vs. median $2,415); `depth` is the only non-positively skewed variable |
-| A4 - Probability | Empirical probability scenarios | Roughly 35% of diamonds fall in the lowest price band ($326–$1,325); bimodal pattern in physical dimensions |
-| A5 - Inference | One-sample t-test, confidence intervals | Tested whether mean diamond price differs from a benchmark; set α = 0.05 |
-| A6 - Regression | Multiple OLS with dummy variables | Final model R² = 0.9014; `carat` is the dominant predictor (coefficient: +$10,892 per carat); x, y, z removed due to near-perfect multicollinearity |
-
----
-
-## Technical Notes
-
-- All analysis was performed in Microsoft Excel
-- Categorical variables were dummy-coded for regression (reference: Low cut, Colorless, Low clarity)
-- Multicollinearity was assessed via correlation matrix; `x`, `y`, and `z` showed correlations of 0.999+ with each other and were removed
-- Final model retained: `carat`, `cut_medium`, `cut_high`, `color_near_colorless`, `color_faint`, `clarity_medium`, `clarity_high`, `depth`, `table`
-
----
-
-*Analysis completed as part of BAN 6005 - Business Analytics, Wake Forest University School of Business, Summer 2026.*
-*Individual repository maintained by Joshua C. Todd.*
+*BAN 6005 - Business Analytics | Wake Forest University School of Business | Summer 2026*
+*Individual repository: Joshua C. Todd | Team: Alicia, Bennett, Joshua Todd*
