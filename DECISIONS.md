@@ -6,7 +6,7 @@ This log records the key analytical choices made during each assignment. It is m
 ---
 
 ## Assignment 2: Dataset Selection & Cleaning
-*2026-06-XX*
+*2026-07-19*
 
 **Dataset:** Diamonds Dataset - originally compiled from the `ggplot2` R package (Hadley Wickham), accessed via Kaggle.
 
@@ -29,7 +29,7 @@ We selected price because it is the central business outcome in any diamond reta
 ---
 
 ## Assignment 3: Descriptive Statistics
-*2026-06-XX*
+*2026-07-26*
 
 **Cleaning carried forward:** The cleaned and recoded dataset from Assignment 2 was used unchanged. No additional rows were removed in this assignment.
 
@@ -44,7 +44,7 @@ Every continuous variable in the dataset except `depth` showed positive skew - `
 ---
 
 ## Assignment 4: Probability
-*2026-07-XX*
+*2026-07-26*
 
 **Normal vs. empirical approach - and why:**
 We used the empirical approach for all probability scenarios rather than assuming a normal distribution. The justification is straightforward: `price` and `carat` both showed significant positive skew (1.61 and 1.11 respectively), meaning a normal distribution assumption would systematically overestimate the likelihood of mid-to-high values. `depth` was the only variable that approximated normality (skew ≈ −0.06) and would have supported a normal model, but for consistency across the assignment we applied the empirical method throughout.
@@ -59,7 +59,7 @@ We used the empirical approach for all probability scenarios rather than assumin
 ---
 
 ## Assignment 5: Statistical Inference
-*2026-07-XX*
+*2026-08-09*
 
 **What we tested:** We conducted a one-sample t-test on diamond price to determine whether the population mean price differs from a specified benchmark value, and constructed a 95% confidence interval around the sample mean.
 
@@ -72,7 +72,7 @@ We used the empirical approach for all probability scenarios rather than assumin
 ---
 
 ## Assignment 6: Regression
-*2026-07-XX*
+*2026-08-11*
 
 **Model building approach:**
 We began with a full model including all predictors (Model 1: all variables) and then identified variables to remove based on multicollinearity diagnostics.
