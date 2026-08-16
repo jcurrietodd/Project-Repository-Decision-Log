@@ -47,6 +47,8 @@
 
 ---
 
+**Decision Log:** [View DECISIONS.md](DECISIONS.md)
+
 ### Executive Summary
 
 Our team was tasked with finding a dataset, under the constraints of at least three categorical variables to compare with our continuous predictors. Our diamonds dataset spanned to 49,835 rows after cleaning to be compared against our set predictors as outlined in our project. We explored six different methods of analysis to better understand what attributes of a diamond best determine price. The dominant finding in our analysis was that the price of diamonds is strongly predicted by carat weight, with each additional carat adding roughly ~$10,892 to the price. This predictor had a very large relativity, essentially dwarfing the other predictors. Of the categorical variables, we assigned dummies and added them as binaries in later assessments of our data to allow them to work out in final regression outputs.
